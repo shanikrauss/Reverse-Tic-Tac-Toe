@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BE1EBE83-965F-46E7-9677-B330D409391E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ReverseTicTacToeGameUI</RootNamespace>
+    <AssemblyName>ReverseTicTacToeGameUI</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BoardButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BoardGameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BoardLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GameSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GameSettingsForm.Designer.cs">
+      <DependentUpon>GameSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="ReverseTicTacToeGame.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BoardGameForm.resx">
+      <DependentUpon>BoardGameForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GameSettingsForm.resx">
+      <DependentUpon>GameSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ReverseTicTacToeGameLogic\ReverseTicTacToeGameLogic.csproj">
+      <Project>{3bc181e9-4838-4152-9cb4-d2f6ce73870a}</Project>
+      <Name>ReverseTicTacToeGameLogic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
